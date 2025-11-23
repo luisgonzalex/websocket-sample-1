@@ -2,6 +2,10 @@
 
 A production-ready WebSocket template with **Fastify** (backend) + **Vite + React + TypeScript** (frontend).
 
+![Photo of the UI](./assets/image.png)
+
+**Live Demo (Render):** https://websocket-sample-1.onrender.com
+
 This template provides a clean separation between **reusable WebSocket plumbing** and **pluggable application logic**, making it easy to build real-time apps like chat applications, multiplayer games, collaborative tools, and more.
 
 ## 🚀 Quick Start
