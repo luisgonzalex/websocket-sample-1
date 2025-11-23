@@ -1,16 +1,33 @@
 {
-  "name": "websocket-message-board",
+  "name": "websocket-template",
   "version": "1.0.0",
-  "description": "Simple WebSocket message board with screen and controller views",
-  "main": "server.js",
+  "description": "Production-ready WebSocket template with Fastify + React + TypeScript",
+  "private": true,
+  "workspaces": [
+    "server",
+    "client"
+  ],
   "scripts": {
-    "start": "node server.js"
+    "install:all": "npm install && npm install --workspace=server && npm install --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
+    "dev:client": "npm run dev --workspace=client",
+    "build:server": "npm run build --workspace=server",
+    "build:client": "npm run build --workspace=client",
+    "build": "npm run build:server && npm run build:client",
+    "start": "npm run start --workspace=server",
+    "typecheck": "npm run typecheck --workspace=server && npm run typecheck --workspace=client"
   },
-  "keywords": ["websocket", "express", "message-board"],
+  "keywords": [
+    "websocket",
+    "template",
+    "fastify",
+    "react",
+    "typescript",
+    "vite"
+  ],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.2",
-    "ws": "^8.14.2"
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
