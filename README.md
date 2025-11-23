@@ -1,7 +1,7 @@
 # WebSocket Template
 
 A production-ready WebSocket template with **Fastify** (backend) + **Vite + React + TypeScript** (frontend).
-
+wow
 ![Photo of the UI](./assets/image.png)
 
 **Live Demo (Render):** https://websocket-sample-1.onrender.com
