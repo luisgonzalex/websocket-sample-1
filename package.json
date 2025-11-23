@@ -1,0 +1,16 @@
+{
+  "name": "websocket-message-board",
+  "version": "1.0.0",
+  "description": "Simple WebSocket message board with screen and controller views",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": ["websocket", "express", "message-board"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "ws": "^8.14.2"
+  }
+}
