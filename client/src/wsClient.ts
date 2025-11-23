@@ -37,6 +37,21 @@ interface WSClientCallbacks {
   onMessage?: (message: ServerMessage) => void;
 }
 
+type WSEventName = 'open' | 'close' | 'error' | 'message';
+type WSEventMap = {
+  open: () => void;
+  close: () => void;
+  error: (error: Event) => void;
+  message: (message: ServerMessage) => void;
+};
+
+const callbackKeyMap: Record<WSEventName, keyof WSClientCallbacks> = {
+  open: 'onOpen',
+  close: 'onClose',
+  error: 'onError',
+  message: 'onMessage',
+};
+
 /**
  * WebSocket Client
  *
@@ -139,25 +154,9 @@ export class WSClient {
   /**
    * Register event callbacks
    */
-  on(event: 'open', callback: () => void): void;
-  on(event: 'close', callback: () => void): void;
-  on(event: 'error', callback: (error: Event) => void): void;
-  on(event: 'message', callback: (message: ServerMessage) => void): void;
-  on(event: keyof WSClientCallbacks, callback: any): void {
-    switch (event) {
-      case 'open':
-        this.callbacks.onOpen = callback;
-        break;
-      case 'close':
-        this.callbacks.onClose = callback;
-        break;
-      case 'error':
-        this.callbacks.onError = callback;
-        break;
-      case 'message':
-        this.callbacks.onMessage = callback;
-        break;
-    }
+  on<K extends WSEventName>(event: K, callback: WSEventMap[K]): void {
+    const key = callbackKeyMap[event];
+    this.callbacks[key] = callback as WSClientCallbacks[typeof key];
   }
 
   /**

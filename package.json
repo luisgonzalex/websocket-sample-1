@@ -15,7 +15,8 @@
     "build:client": "npm run build --workspace=client",
     "build": "npm run build:server && npm run build:client",
     "start": "npm run start --workspace=server",
-    "typecheck": "npm run typecheck --workspace=server && npm run typecheck --workspace=client"
+    "typecheck": "npm run typecheck --workspace=server && npm run typecheck --workspace=client",
+    "prepare": "husky install"
   },
   "keywords": [
     "websocket",
@@ -29,5 +30,8 @@
   "license": "ISC",
   "engines": {
     "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7"
   }
 }
